@@ -12,15 +12,22 @@ import com.javaegitimleri.petclinic.service.PetClinicService;
 @Controller
 public class PetClinicController {
 
+    @RequestMapping(value="/login.html")
+    public ModelAndView loginPage() {
+        ModelAndView mav = new ModelAndView();
+        mav.setViewName("login");
+        return mav;
+    }
+
+
     @Autowired
     private PetClinicService petClinicService;
 
-    @RequestMapping(value = {"/","/index.html"}, method = RequestMethod.POST)
-    public  ModelAndView index(){
-
-        ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("index");
-        return modelAndView;
+    @RequestMapping(value={"/","/index.html"})
+    public ModelAndView index() {
+        ModelAndView mav = new ModelAndView();
+        mav.setViewName("index");
+        return mav;
     }
 
     @RequestMapping("/pcs")

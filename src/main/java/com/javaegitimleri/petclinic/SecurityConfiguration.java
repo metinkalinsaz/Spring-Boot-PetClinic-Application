@@ -6,14 +6,11 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 
 @Configuration
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
-
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-
-        http.authorizeRequests().antMatchers("/**/favicon.ico", "/css/**", "/images/**", "/webjars/**").permitAll();
+        http.authorizeRequests().antMatchers("/**/favicon.ico", "/css/**", "js/**", "/images/**", "/webjars/**","/login.html")
+                .permitAll();
         http.authorizeRequests().anyRequest().authenticated();
-        http.formLogin();
+        http.formLogin().loginPage("/login.html").loginProcessingUrl("/login").failureUrl("/login.html?loginFailed=true");
     }
-
-
 }
