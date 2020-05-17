@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link th:href="@{/css/petclinic.css}" type="text/css" rel="stylesheet"/>
+    <meta charset="UTF-8"/>
+    <title>Insert Title Here</title>
+</head>
+<body>
+<table>
+    <thead>
+    <tr style="font-weight: bold" bgcolor="#f0e68c">
+        <td>ID</td>
+        <td>First Name</td>
+        <td>Last Name</td>
+    </tr>
+    </thead>
+
+    <th:block th:each="owner, iterState:${owners}">
+        <tr th:bgcolor="${iterState.odd}?white:lightgreen">
+            <td th:text="${owner.id}"/>
+            <td th:text="${owner.firstName}"/>
+            <td th:text="${owner.lastName}"/>
+        </tr>
+
+    </th:block>
+
+</table>
+</body>
+</html>
