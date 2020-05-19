@@ -10,7 +10,7 @@
 <form:form modelAttribute="owner" method="post">
     FirstName:<form:input path="firstName"/><br/>
     LastName:<form:input path="lastName"/><br/>
-    <form:button name="submit">Create</form:button>
+    <form:button name="submit">Update</form:button>
 </form:form>
 
 </body>
