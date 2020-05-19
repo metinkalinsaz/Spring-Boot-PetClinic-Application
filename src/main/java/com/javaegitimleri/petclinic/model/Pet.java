@@ -2,9 +2,12 @@ package com.javaegitimleri.petclinic.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import java.util.Date;
 
@@ -13,6 +16,8 @@ import java.util.Date;
 public class Pet {
 
     @Id
+    @GeneratedValue(strategy= GenerationType.SEQUENCE,generator="petClinicSeqGen")
+    @SequenceGenerator(name="petClinicSeqGen",sequenceName="petclinic_sequence",allocationSize = 1)
     private Long id;
 
     @Column(name = "name")

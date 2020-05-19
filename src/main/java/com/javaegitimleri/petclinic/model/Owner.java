@@ -4,8 +4,11 @@ import net.minidev.json.annotate.JsonIgnore;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
@@ -18,6 +21,8 @@ import java.util.Set;
 public class Owner {
 
     @Id
+    @GeneratedValue(strategy=GenerationType.SEQUENCE,generator="petClinicSeqGen")
+    @SequenceGenerator(name="petClinicSeqGen",sequenceName="petclinic_sequence",allocationSize = 1)
     private Long id;
 
     @Column(name = "first_name")
